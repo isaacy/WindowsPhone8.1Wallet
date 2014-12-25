@@ -1,0 +1,278 @@
+﻿<Page
+    x:Class="MyWallet.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyWallet"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="NewWindow" Label="Go to wallet" Click="AppBarButton_Click_3"  />
+            <AppBarButton Icon="Add" Label="Add all" Click="AppBarButton_Click_2" />
+            <AppBarButton Icon="Shop" Label="Go to Store" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="Clear" Label="Clear all" Click="AppBarButton_Click_1"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid>
+
+        <Pivot Title="Pivot">
+            <PivotItem Header="Membership">
+                    <Grid>
+                        <StackPanel>
+                            <Grid HorizontalAlignment="Left" Margin="0,0,-0.333,0" Width="362" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="AddMembershipButtonQR" Grid.Row="0" Grid.Column="0" Click="AddMembershipButtonQR_Click" Content="Add Membership (QR)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Button>
+                                <Button x:Name="MembershipInfoButtonQR" Grid.Row="0"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="90" Click="MembershipQRInfo_Click">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" ></Image>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="AddMembershipButtonBarCode" Grid.Row="1" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddMembershipButtonBarcode_Click"></Button>
+                                <Button x:Name="MembershipInfoButtonBarcode" Grid.Row="1"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90" Click="MembershipInfoButtonBarcode_Click">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>
+                                <!--<Button x:Name="AddBoardingPassButtonBarCode" Grid.Row="2" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="BoardingPassInfoButtonBarcode" Grid.Row="2"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="AddTransitPassButtonBarCode" Grid.Row="3" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="TransitPassInfoButtonBarcode" Grid.Row="3"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="AddDealPassButtonBarCode" Grid.Row="4" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="DealPassInfoButtonBarcode" Grid.Row="4"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>-->
+                                
+                                <Button x:Name="ClearButton" Grid.Row="6" Grid.ColumnSpan ="2" Content="Clear" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="ClearMembershipButton_Click" Margin="0,-1,-0.333,-0.333"/>
+                            </Grid>
+                    </StackPanel>
+                    </Grid>
+            </PivotItem>
+            <PivotItem Header="Deals">
+                <Grid>
+
+                    <StackPanel>
+                        <Grid HorizontalAlignment="Left" Margin="0,0,-0.333,0" Width="362" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="AddDealPassButton" Grid.Row="4" Grid.Column="0"  Content="Add Consoto Deal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddDealPassButtonBarCode_Click" ></Button>
+                            <Button x:Name="DealPassInfoButton" Grid.Row="4"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90" Click="DealPassInfoButton_Click">
+                                <StackPanel>
+                                    <Image Source="Assets/icons/info_blackbg.png" />
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="AddExpiredDealPassButton" Grid.Row="5" Grid.Column="0"  Content="Add (Expired) Consoto Deal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddExpiredDealPassButton_Click" ></Button>
+                            <Button x:Name="ExpiredDealPassInfoButton" Grid.Row="5"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90" Click="ExpiredDealPassInfoButton_Click" >
+                                <StackPanel>
+                                    <Image Source="Assets/icons/info_blackbg.png" />
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="ClearDealsButton" Grid.Row="6" Grid.ColumnSpan ="2" Content="Clear Deal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="ClearDealsButton_Click" Margin="0,-1,-0.333,-0.333"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="BoardingPass">
+                <Grid>
+
+                    <StackPanel>
+                        <Grid HorizontalAlignment="Left" Margin="0,0,-0.333,0" Width="362" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                      
+                            <Button x:Name="AddBoardingPassButtonBarCode" Grid.Row="2" Grid.Column="0"  Content="Add Boarding Pass" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddBoardingPassButtonBarCode_Click" ></Button>
+                            <Button x:Name="BoardingPassInfoButtonBarcode" Grid.Row="2"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90" Click="BoardingPassInfoButtonBarcode_Click">
+                                <StackPanel>
+                                    <Image Source="Assets/icons/info_blackbg.png" />
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="ClearBoardingPassButton" Grid.Row="6" Grid.ColumnSpan ="2" Content="Clear Boarding Pass" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-1,-0.333,-0.333" Click="ClearBoardingPassButton_Click"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Tickets">
+                <Grid>
+
+                    <StackPanel>
+                        <Grid HorizontalAlignment="Left" Margin="0,0,-0.333,0" Width="362" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="AddTicketButtonBarCode" Grid.Row="3" Grid.Column="0"  Content="Add Ticket" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddTicketButtonBarCode_Click" ></Button>
+                            <Button x:Name="TicketInfoButtonBarcode" Grid.Row="3"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90" Click="TicketInfoButtonBarcode_Click">
+                                <StackPanel>
+                                    <Image Source="Assets/icons/info_blackbg.png" />
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="ClearTicketButton" Grid.Row="6" Grid.ColumnSpan ="2" Content="Clear Ticket" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-1,-0.333,-0.333" Click="ClearTicketButton_Click"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Payment Instruments">
+                <Grid>
+                    <StackPanel>
+                        <Grid HorizontalAlignment="Left" Margin="0,0,-0.333,0" Width="362" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="AddPIButtonQR" Grid.Row="0" Grid.Column="0" Content="Add Payment Instruments (QR)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddPIButtonQR_Click"></Button>
+                            <Button x:Name="PIInfoButtonQR" Grid.Row="0"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="90" Click="PIInfoButtonQR_Click" >
+                                <StackPanel>
+                                    <Image Source="Assets/icons/info_blackbg.png" ></Image>
+                                </StackPanel>
+                            </Button>
+                            <!--<Button x:Name="AddMembershipButtonBarCode" Grid.Row="1" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddMembershipButtonBarcode_Click"></Button>
+                            <Button x:Name="MembershipInfoButtonBarcode" Grid.Row="1"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90" Click="MembershipInfoButtonBarcode_Click">
+                                <StackPanel>
+                                    <Image Source="Assets/icons/info_blackbg.png" />
+                                </StackPanel>
+                            </Button>-->
+                            <!--<Button x:Name="AddBoardingPassButtonBarCode" Grid.Row="2" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="BoardingPassInfoButtonBarcode" Grid.Row="2"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="AddTransitPassButtonBarCode" Grid.Row="3" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="TransitPassInfoButtonBarcode" Grid.Row="3"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="AddDealPassButtonBarCode" Grid.Row="4" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="DealPassInfoButtonBarcode" Grid.Row="4"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>-->
+
+                            <Button x:Name="ClearPIButton" Grid.Row="6" Grid.ColumnSpan ="2" Content="Clear" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-1,-0.333,-0.333" Click="ClearPIButton_Click"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Others">
+                <Grid>
+                    <StackPanel>
+                        <Grid HorizontalAlignment="Left" Margin="0,0,-0.333,0" Width="362" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="AddGeneralButtonQR" Grid.Row="0" Grid.Column="0" Content="Add Membership (QR)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddGeneralButtonQR_Click"></Button>
+                            <Button x:Name="GeneralInfoButtonQR" Grid.Row="0"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="90" Click="GeneralInfoButtonQR_Click" >
+                                <StackPanel>
+                                    <Image Source="Assets/icons/info_blackbg.png" ></Image>
+                                </StackPanel>
+                            </Button>
+                            <!--<Button x:Name="AddMembershipButtonBarCode" Grid.Row="1" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddMembershipButtonBarcode_Click"></Button>
+                            <Button x:Name="MembershipInfoButtonBarcode" Grid.Row="1"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90" Click="MembershipInfoButtonBarcode_Click">
+                                <StackPanel>
+                                    <Image Source="Assets/icons/info_blackbg.png" />
+                                </StackPanel>
+                            </Button>-->
+                            <!--<Button x:Name="AddBoardingPassButtonBarCode" Grid.Row="2" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="BoardingPassInfoButtonBarcode" Grid.Row="2"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="AddTransitPassButtonBarCode" Grid.Row="3" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="TransitPassInfoButtonBarcode" Grid.Row="3"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="AddDealPassButtonBarCode" Grid.Row="4" Grid.Column="0"  Content="Add Membership (Barcode)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                                <Button x:Name="DealPassInfoButtonBarcode" Grid.Row="4"  Grid.Column="1" IsEnabled="False" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" MinWidth="90">
+                                    <StackPanel>
+                                        <Image Source="Assets/icons/info_blackbg.png" />
+                                    </StackPanel>
+                                </Button>-->
+
+                            <Button x:Name="ClearOthersButton" Grid.Row="6" Grid.ColumnSpan ="2" Content="Clear Other Items" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,-1,-0.333,-0.333" Click="ClearOthersButton_Click"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
