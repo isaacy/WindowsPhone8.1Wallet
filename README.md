@@ -14,3 +14,4 @@ The functionalities include:
 
 You can find the relevant investigation here:
 https://medium.com/@isaacy/wallet-for-windows-phone-store-apps-a-wallet-app-developer-perspective-part-1-cbfb9d553fbd
+https://medium.com/@isaacy/wallet-for-windows-phone-store-part-2-wallet-ecosystem-and-interactions-with-other-apps-c3102e5557d4
