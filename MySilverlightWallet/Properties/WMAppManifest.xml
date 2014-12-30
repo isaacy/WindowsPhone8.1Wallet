@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
+  <DefaultLanguage xmlns="" code="en-US" />
+  <App xmlns="" ProductID="{10e92b68-084f-48e4-a994-dd513da48467}" Title="MySilverlightWallet" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="MySilverlightWallet author" Description="Sample description" SDOptOut="false" BackUpOptOut="false" Publisher="MySilverlightWallet" PublisherID="{5fe4cf5a-d7d0-4499-bf83-a629ce61f37c}">
+    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
+      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
+      <Capability Name="ID_CAP_SENSORS" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+      <Capability Name="ID_CAP_WALLET" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" ActivationPolicy="Resume" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="MySilverlightWalletToken" TaskName="_default">
+        <TemplateFlip>
+          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <Count>0</Count>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
+          <Title>MySilverlightWallet</Title>
+          <BackContent>
+          </BackContent>
+          <BackBackgroundImageURI>
+          </BackBackgroundImageURI>
+          <BackTitle>
+          </BackTitle>
+          <DeviceLockImageURI>
+          </DeviceLockImageURI>
+          <HasLarge>
+          </HasLarge>
+        </TemplateFlip>
+      </PrimaryToken>
+    </Tokens>
+    <Extensions>
+      <Extension ExtensionName="Wallet_app_other" ConsumerID="{5B04B775-356B-4AA0-AAF8-6491FFEA5683}" TaskID="_default"/>
+    </Extensions>
+    <ScreenResolutions>
+      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
+      <ScreenResolution Name="ID_RESOLUTION_WXGA" />
+      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
+    </ScreenResolutions>
+  </App>
+</Deployment>
