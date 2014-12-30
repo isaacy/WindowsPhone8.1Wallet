@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -52,26 +53,7 @@ namespace MyWallet
             }
 #endif
 
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (rootFrame == null)
-            {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
-
-                // TODO: change this value to a cache size that is appropriate for your application
-                rootFrame.CacheSize = 1;
-
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    // TODO: Load state from previously suspended application
-                }
-
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
-            }
+            Frame rootFrame = CreateRootFrame(e);
 
             if (rootFrame.Content == null)
             {
@@ -101,6 +83,31 @@ namespace MyWallet
             Window.Current.Activate();
         }
 
+        private static Frame CreateRootFrame(LaunchActivatedEventArgs e = null)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            // Do not repeat app initialization when the Window already has content,
+            // just ensure that the window is active
+            if (rootFrame == null)
+            {
+                // Create a Frame to act as the navigation context and navigate to the first page
+                rootFrame = new Frame();
+
+                // TODO: change this value to a cache size that is appropriate for your application
+                rootFrame.CacheSize = 1;
+
+                if (e!=null && e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                {
+                    // TODO: Load state from previously suspended application
+                }
+
+                // Place the frame in the current Window
+                Window.Current.Content = rootFrame;
+            }
+            return rootFrame;
+        }
+
         /// <summary>
         /// Restores the content transitions after the app has launched.
         /// </summary>
@@ -126,6 +133,34 @@ namespace MyWallet
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        protected async override void OnActivated(IActivatedEventArgs args)
+        {
+            Frame rootFrame = CreateRootFrame();
+
+            if (args.Kind == ActivationKind.WalletAction)
+            {
+                WalletActionActivatedEventArgs walletActivationArgs = args as WalletActionActivatedEventArgs;
+
+                MessageDialog dialog = new MessageDialog(
+                    string.Format("Action ID: {0}, Item ID: {1}", walletActivationArgs.ActionId, walletActivationArgs.ActionKind ),
+                    walletActivationArgs.ItemId);
+
+                await dialog.ShowAsync();
+            }
+
+            if (rootFrame.Content == null)
+            {
+                // When the navigation stack isn't restored navigate to the first page,
+                // configuring the new page by passing required information as a navigation
+                // parameter
+                rootFrame.Navigate(typeof(MainPage), args);
+            }
+
+            Window.Current.Activate();
+
+            base.OnActivated(args);
         }
     }
 }

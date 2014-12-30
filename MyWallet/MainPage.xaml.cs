@@ -48,7 +48,7 @@ namespace MyWallet
             WalletItemStore store = await WalletManager.RequestStoreAsync();
             await store.ClearAsync();
         }
-
+        
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -130,6 +130,8 @@ namespace MyWallet
             // Add a promotional message to the card.
             card.DisplayMessage = "Tap here for your 15% off coupon";
             card.IsDisplayMessageLaunchable = true;
+            
+            card.Verbs.Add("visit", new WalletVerb("Visit Store"));
 
             ((Button)sender).IsEnabled = false;
             this.MembershipInfoButtonQR.IsEnabled = true;
@@ -352,7 +354,6 @@ namespace MyWallet
                     }
                 });
 
-
             // Add a relevant date.
             card.RelevantDate = DateTime.Now;
             card.RelevantDateDisplayMessage = "Deal is available all the way in 2014!";
@@ -371,7 +372,6 @@ namespace MyWallet
         {
             WalletItemStore store = await WalletManager.RequestStoreAsync();
             await store.ShowAsync(dealName);
-
         }
 
 
