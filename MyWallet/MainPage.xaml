@@ -273,6 +273,29 @@
                     </StackPanel>
                 </Grid>
             </PivotItem>
+            <PivotItem Header="MS wallet">
+            <Grid>
+                <StackPanel>
+                    <Grid HorizontalAlignment="Left" Margin="0,0,-0.333,0" Width="362" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                            <Button x:Name="BlueYonder" Grid.Row="0" Grid.Column="0" Content="Blue Yonder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                            <Button x:Name="AventureWorksCycles" Grid.Row="1"  Grid.Column="0" Content="Aventure Works Cycles" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></Button>
+                            <Button x:Name="CohoWinery" Grid.Row="2" Grid.Column="0" Content="Coho Winery" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                            <Button x:Name="NorthwindTraders" Grid.Row="3" Grid.Column="0" Content="Northwind Traders" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                            <Button x:Name="TailspinToys" Grid.Row="4" Grid.Column="0" Content="Tailspin Toys" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                        </Grid>
+                </StackPanel>
+            </Grid>
+            </PivotItem>
         </Pivot>
     </Grid>
 </Page>
