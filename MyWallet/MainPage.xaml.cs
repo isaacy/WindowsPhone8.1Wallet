@@ -325,8 +325,12 @@ namespace MyWallet
             prop = new WalletItemCustomProperty("Location", "1 Microsoft Way, Redmond,  WA 98052");
             //prop.DetailViewPosition = WalletDetailViewPosition.FooterField4;
             prop.AutoDetectLinks = true;
-            
             card.DisplayProperties["Address"] = prop;
+
+            prop = new WalletItemCustomProperty("Email", "johnjoe@live.com");
+            prop.AutoDetectLinks = true;
+            card.DisplayProperties["Address"] = prop;
+
 
             // Encode the user's account number as a Qr Code to be used in the store.
             card.Barcode = new WalletBarcode(WalletBarcodeSymbology.Ean13, "9876543210123");
@@ -381,7 +385,7 @@ namespace MyWallet
 
             //string itemId = string.IsNullOrEmpty(walletItemName.Text) ? walletItemName.Text : cardName;
 
-            WalletItem card = new WalletItem(WalletItemKind.Deal, dealName);
+            WalletItem card = new WalletItem(WalletItemKind.Deal, "Expired Deal");
             // Set colors, to give the card our distinct branding.
             card.BodyColor = Windows.UI.Colors.Brown;
             card.BodyFontColor = Windows.UI.Colors.White;
@@ -431,26 +435,31 @@ namespace MyWallet
             card.DisplayProperties["Holder4"] = prop;
 
             prop = new WalletItemCustomProperty("Valid Until", "2014-11-16");
-            prop.DetailViewPosition = WalletDetailViewPosition.FooterField1;
+            //prop.DetailViewPosition = WalletDetailViewPosition.FooterField1;
             prop.AutoDetectLinks = true;
             prop.SummaryViewPosition = WalletSummaryViewPosition.Field1;
             card.DisplayProperties["Website"] = prop;
 
             prop = new WalletItemCustomProperty("Website", "http://www.Contoso.com/");
-            prop.DetailViewPosition = WalletDetailViewPosition.FooterField2;
+            //prop.DetailViewPosition = WalletDetailViewPosition.FooterField2;
             prop.AutoDetectLinks = true;
             prop.SummaryViewPosition = WalletSummaryViewPosition.Field2;
             card.DisplayProperties["Website"] = prop;
 
             // Add the customer account number.
             prop = new WalletItemCustomProperty("Phone", "425-707-1234");
-            prop.DetailViewPosition = WalletDetailViewPosition.FooterField3;
+            //prop.DetailViewPosition = WalletDetailViewPosition.FooterField3;
             prop.AutoDetectLinks = true;
             card.DisplayProperties["phone"] = prop;
 
-            //prop = new WalletItemCustomProperty("Location", "1 Microsot Way, Redmond,  WA 98052");
+            prop = new WalletItemCustomProperty("Location", "1 Microsot Way, Redmond,  WA 98052");
+            prop.AutoDetectLinks = true;
             //prop.DetailViewPosition = WalletDetailViewPosition.FooterField4;
-            //card.DisplayProperties["Address"] = prop;
+            card.DisplayProperties["Address"] = prop;
+
+            prop = new WalletItemCustomProperty("Email", "johnjoe@live.com");
+            prop.AutoDetectLinks = true;
+            card.DisplayProperties["Address"] = prop;
 
             // Encode the user's account number as a Qr Code to be used in the store.
             card.Barcode = new WalletBarcode(WalletBarcodeSymbology.Ean13, "9876543210123");
@@ -1061,6 +1070,149 @@ namespace MyWallet
             }
         }
         #endregion
+
+
+        private static string webservice = @"http://dingly-coffee.azurewebsites.net";
+
+        private async void AventureWorksCycles_Click(object sender, RoutedEventArgs e)
+        {
+            if (radioButtonImport.IsChecked.HasValue && (bool) radioButtonImport.IsChecked)
+            {
+                Uri targetUri = new Uri(new Uri(webservice) , "AventureWorksCycles");
+                var success = await Windows.System.Launcher.LaunchUriAsync(targetUri);
+
+                if (success)
+                {
+                    // URI launched
+                }
+                else
+                {
+                    // URI launch failed
+                }
+
+            }
+            else
+            {
+                //WalletItemStore store = await WalletManager.RequestStoreAsync();
+                //await store.ImportItemAsync()
+
+            }
+
+            ((Button) e.OriginalSource).IsEnabled = false;
+        }
+
+        private async void CohoWinery_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (radioButtonImport.IsChecked.HasValue && (bool)radioButtonImport.IsChecked)
+            {
+                Uri targetUri = new Uri(new Uri(webservice), "CohoWinery");
+                var success = await Windows.System.Launcher.LaunchUriAsync(targetUri);
+
+                if (success)
+                {
+                    // URI launched
+                }
+                else
+                {
+                    // URI launch failed
+                }
+
+            }
+            else
+            {
+                //WalletItemStore store = await WalletManager.RequestStoreAsync();
+                //await store.ImportItemAsync()
+
+            }
+            ((Button)e.OriginalSource).IsEnabled = false;
+
+        }
+
+        private async void NorthwindTraders_Click(object sender, RoutedEventArgs e)
+        {
+            if (radioButtonImport.IsChecked.HasValue && (bool)radioButtonImport.IsChecked)
+            {
+                Uri targetUri = new Uri(new Uri(webservice), "NorthwindTraders");
+                var success = await Windows.System.Launcher.LaunchUriAsync(targetUri);
+
+                if (success)
+                {
+                    // URI launched
+                }
+                else
+                {
+                    // URI launch failed
+                }
+
+            }
+            else
+            {
+                //WalletItemStore store = await WalletManager.RequestStoreAsync();
+                //await store.ImportItemAsync()
+
+            }
+
+            ((Button)e.OriginalSource).IsEnabled = false;
+
+
+        }
+
+        private async void TailspinToys_Click(object sender, RoutedEventArgs e)
+        {
+            if (radioButtonImport.IsChecked.HasValue && (bool)radioButtonImport.IsChecked)
+            {
+                Uri targetUri = new Uri(new Uri(webservice), "TailspinToys");
+                var success = await Windows.System.Launcher.LaunchUriAsync(targetUri);
+
+                if (success)
+                {
+                    // URI launched
+                }
+                else
+                {
+                    // URI launch failed
+                }
+
+            }
+            else
+            {
+                //WalletItemStore store = await WalletManager.RequestStoreAsync();
+                //await store.ImportItemAsync()
+
+            }
+
+            ((Button)e.OriginalSource).IsEnabled = false;
+
+        }
+
+        private async void BlueYonder_Click(object sender, RoutedEventArgs e)
+        {
+            if (radioButtonImport.IsChecked.HasValue && (bool)radioButtonImport.IsChecked)
+            {
+                Uri targetUri = new Uri(new Uri(webservice), "BlueYonder");
+                var success = await Windows.System.Launcher.LaunchUriAsync(targetUri);
+
+                if (success)
+                {
+                    // URI launched
+                }
+                else
+                {
+                    // URI launch failed
+                }
+
+            }
+            else
+            {
+                //WalletItemStore store = await WalletManager.RequestStoreAsync();
+                //await store.ImportItemAsync()
+
+            }
+
+            ((Button)e.OriginalSource).IsEnabled = false;
+
+        }
 
     }
 }

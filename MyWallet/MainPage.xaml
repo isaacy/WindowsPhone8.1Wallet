@@ -275,10 +275,12 @@
             </PivotItem>
             <PivotItem Header="MS wallet">
             <Grid>
-                <StackPanel>
+                <StackPanel >
                     <Grid HorizontalAlignment="Left" Margin="0,0,-0.333,0" Width="362" >
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
+                                <RowDefinition/>
+
+                                <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -287,11 +289,17 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                            <Button x:Name="BlueYonder" Grid.Row="0" Grid.Column="0" Content="Blue Yonder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
-                            <Button x:Name="AventureWorksCycles" Grid.Row="1"  Grid.Column="0" Content="Aventure Works Cycles" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></Button>
-                            <Button x:Name="CohoWinery" Grid.Row="2" Grid.Column="0" Content="Coho Winery" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
-                            <Button x:Name="NorthwindTraders" Grid.Row="3" Grid.Column="0" Content="Northwind Traders" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
-                            <Button x:Name="TailspinToys" Grid.Row="4" Grid.Column="0" Content="Tailspin Toys" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Button>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" FlowDirection="LeftToRight">
+                                <RadioButton x:Name="radioButtonUri"  Content="Launch with Uri" IsChecked="True" GroupName="nameString">
+                                </RadioButton>
+                                <RadioButton x:Name="radioButtonImport" Content="Import" GroupName="nameString">
+                                </RadioButton>
+                            </StackPanel>
+                            <Button x:Name="AventureWorksCycles" Grid.Row="1"  Grid.Column="0" Content="Aventure Works Cycles" Margin="5.333,0,0,1.333" BorderThickness="2.5" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="AventureWorksCycles_Click"></Button>
+                            <Button x:Name="CohoWinery" Grid.Row="2" Grid.Column="0" Content="Coho Winery" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="CohoWinery_Click" ></Button>
+                            <Button x:Name="NorthwindTraders" Grid.Row="3" Grid.Column="0" Content="Northwind Traders" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="NorthwindTraders_Click" ></Button>
+                            <Button x:Name="TailspinToys" Grid.Row="4" Grid.Column="0" Content="Tailspin Toys" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="TailspinToys_Click" ></Button>
+                            <Button x:Name="BlueYonder" Grid.Row="5" Grid.Column="0" Content="Blue Yonder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BlueYonder_Click" ></Button>
                         </Grid>
                 </StackPanel>
             </Grid>
